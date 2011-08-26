@@ -7,7 +7,8 @@ end
 
 class Object
   include Types
-  def alert msg, options={:block => true}
+  def alert msg, options={}
+    options[:block] = options.has_key?(:block) ? options[:block] : true
     dialog = Gtk::MessageDialog.new(
       get_win,
       Gtk::Dialog::MODAL,
